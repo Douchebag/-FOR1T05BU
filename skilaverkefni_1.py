@@ -107,6 +107,80 @@ while valm !="6":
                     print(x)#birtir listann
 
             elif valm == "2":
-                radadur = nafnalisti.sort()
-                print(radadur)
+                radadur = sorted(nafnalisti)
+                for x in radadur:
+                    print(x)
 
+            elif valm == "3":
+                ofugt = sorted(nafnalisti, reverse=True)
+                for x in ofugt:
+                    print(x)
+            elif valm == "4":
+                numerNafn = int(input("Veldu númerið á nafninu: "))
+
+                print(nafnalisti[numerNafn-1])
+
+    elif valm == "4":
+        print("Þú hefur valið Verkefni 4")
+
+        fjoldi = int(input("Hversu oft villtu kasta teningnum? "))
+
+        teningur = []
+        for x in range(fjoldi):
+            t1 = randint(1, 6)
+            print("Þú fékkst: ", t1)
+            teningur.append(t1)
+
+        tal1 = teningur.count(1)
+        tal2 = teningur.count(2)
+        tal3 = teningur.count(3)
+        tal4 = teningur.count(4)
+        tal5 = teningur.count(5)
+        tal6 = teningur.count(6)
+
+        print("Talan 1 kom: ", tal1, "sinnum")
+        print("Talan 2 kom: ", tal2, "sinnum")
+        print("Talan 3 kom: ", tal3, "sinnum")
+        print("Talan 4 kom: ", tal4, "sinnum")
+        print("Talan 5 kom: ", tal5, "sinnum")
+        print("Talan 6 kom: ", tal6, "sinnum")
+
+        if tal1 > tal2 and tal1 > tal3 and tal1 > tal4 and tal1 > tal5 and tal1 > tal6:
+            print("Talan 1 kom upp oftast")
+        elif tal2 > tal3 and tal2 > tal4 and tal2 > tal5 and tal2 > tal6 and tal2 > tal1:
+            print("Talan 2 kom upp oftast")
+        elif tal3 > tal4 and tal3 > tal5 and tal3 > tal6 and tal3 > tal1 and tal3 > tal2:
+            print("Talan 3 kom upp oftast")
+        elif tal4 > tal5 and tal4 > tal6 and tal4 > tal1 and tal4 > tal2 and tal4 > tal3:
+            print("Talan 4 kom upp oftast")
+        elif tal5 > tal6 and tal5 > tal1 and tal5 > tal2 and tal5 > tal3 and tal5 > tal4:
+            print("Talan 5 kom upp oftast")
+        elif tal6 > tal1 and tal6 > tal2 and tal6 > tal3 and tal6 > tal4 and tal6 > tal5:
+            print("Talan 6 kom upp oftast")
+
+
+        if tal1 < tal2 and tal1 < tal3 and tal1 < tal4 and tal1 < tal5 and tal1 < tal6:
+            print("Talan 1 kom upp minnst")
+        elif tal2 < tal3 and tal2 < tal4 and tal2 < tal5 and tal2 < tal6 and tal2 < tal1:
+            print("Talan 2 kom upp minnst")
+        elif tal3 < tal4 and tal3 < tal5 and tal3 < tal6 and tal3 < tal1 and tal3 < tal2:
+            print("Talan 3 kom upp minnst")
+        elif tal4 < tal5 and tal4 < tal6 and tal4 < tal1 and tal4 < tal2 and tal4 < tal3:
+            print("Talan 4 kom upp minnst")
+        elif tal5 < tal6 and tal5 < tal1 and tal5 < tal2 and tal5 < tal3 and tal5 < tal4:
+            print("Talan 5 kom upp minnst")
+        elif tal6 < tal1 and tal6 < tal2 and tal6 < tal3 and tal6 < tal4 and tal6 < tal5:
+            print("Talan 6 kom upp minnst")
+
+    elif valm == "5":
+        print("Þú hefur valið verkefni 6")
+
+        fjoldi = int(input("Hversu margir eru skráðir í hópinn? "))
+        nafnalisti = []
+        print("Skrifaðu nöfnin fyrir neðan")
+        for x in range(fjoldi):
+            nafn = input("")
+            nafnalisti.append(nafn)
+
+        for x in sorted(nafnalisti):
+            print(x)
