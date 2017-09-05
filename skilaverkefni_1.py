@@ -62,23 +62,23 @@ while valm !="6":
         for x in randomlisti:
             teljari += 1
             print(x, end=" ")
-            if teljari % 4 == 0:
+            if teljari % 4 == 0: #ef þú deilir teljaranum með 4 og ferð 0 afgangs
                 print("\n")
-            if x >= 1 and x <= 250:
+            if x >= 1 and x <= 250: #ef x er a bilin 1 og 250
                 teljari3 += 1
-            if x >= 251 and x <= 500:
+            if x >= 251 and x <= 500: #ef x er a bilinu 251 og 500
                 teljari4 += 1
 
-        print("Minnsta talan er:", min(randomlisti))
-        print("Stærsta talan er:", max(randomlisti))
+        print("Minnsta talan er:", min(randomlisti))#birtir minnstu töluna í listanum
+        print("Stærsta talan er:", max(randomlisti))#birtir hæstu töluna í listanum
 
-        for x in randomlisti[::-1]:
-            teljari2 += 1
-            print(x, end=" ")
-            if teljari2 % 6 == 0:
-                print("\n")
-        print("\nÞað voru", teljari3, "tölur á bilinu 1-250")
-        print("Það voru", teljari4, "tölur á bilinu 251-500")
+        for x in randomlisti[::-1]: #keyrir forlykkjuna öfugt
+            teljari2 += 1 #bætir við 1 í teljari2
+            print(x, end=" ")#birtir x með bil á milli í staðs línu
+            if teljari2 % 6 == 0:#ef þú deilir teljara2 með 6 og færð 0 afgangs
+                print("\n")#birtir nýja línu
+        print("\nÞað voru", teljari3, "tölur á bilinu 1-250")#birtir svar
+        print("Það voru", teljari4, "tölur á bilinu 251-500")#birtir svar
 
     elif valm == "3":
         print("Þú hefur valið Verkefni 3")
@@ -86,11 +86,11 @@ while valm !="6":
 
         nafnalisti = []
         print("Sláðu inn 5 nöfn fyrir neðan")
-        for x in range(5):
-            nafn = input("")
-            nafnalisti.append(nafn)
+        for x in range(5):#keyrir forslaufu 5 sinnum
+            nafn = input("")#tekur við svari
+            nafnalisti.append(nafn)#bætir svari við listans
 
-        #valmynd
+        #ný valmynd
         valm = ""
         while valm != "5":
             print("\n--------------")
@@ -103,18 +103,18 @@ while valm !="6":
             valm = input("")
 
             if valm == "1":
-                for x in nafnalisti:
+                for x in nafnalisti:#keyrir í gegnum listann
                     print(x)#birtir listann
 
             elif valm == "2":
-                radadur = sorted(nafnalisti)
-                for x in radadur:
-                    print(x)
+                radadur = sorted(nafnalisti) #gildi fyrir listann eftir að hann er raðaður
+                for x in radadur:#keyrir í gegnum raðaða listann
+                    print(x)#birtir x
 
             elif valm == "3":
-                ofugt = sorted(nafnalisti, reverse=True)
-                for x in ofugt:
-                    print(x)
+                ofugt = sorted(nafnalisti, reverse=True)#tekur listann og raðar honum og snýr honum við
+                for x in ofugt:#keyrir í gegnum öfuga listann
+                    print(x)#birtir x
             elif valm == "4":
                 numerNafn = int(input("Veldu númerið á nafninu: "))
 
@@ -123,14 +123,15 @@ while valm !="6":
     elif valm == "4":
         print("Þú hefur valið Verkefni 4")
 
-        fjoldi = int(input("Hversu oft villtu kasta teningnum? "))
+        fjoldi = int(input("Hversu oft villtu kasta teningnum? "))#tekur við svari notanda
 
-        teningur = []
-        for x in range(fjoldi):
-            t1 = randint(1, 6)
-            print("Þú fékkst: ", t1)
-            teningur.append(t1)
+        teningur = []#listi fyrir tölurnar sem koma
+        for x in range(fjoldi):#keyrir forslaufuna eins oft og notandinn vill
+            t1 = randint(1, 6)#random tala milli 1 og 6
+            print("Þú fékkst: ", t1)#birtir töluna sem kom
+            teningur.append(t1)#bætir töluni við listann
 
+        #telur stakinn í listanum, hefði getað sett upp teljara í forslaufunni
         tal1 = teningur.count(1)
         tal2 = teningur.count(2)
         tal3 = teningur.count(3)
@@ -138,6 +139,7 @@ while valm !="6":
         tal5 = teningur.count(5)
         tal6 = teningur.count(6)
 
+        #birtir hversu oft tölurnar koma upp
         print("Talan 1 kom: ", tal1, "sinnum")
         print("Talan 2 kom: ", tal2, "sinnum")
         print("Talan 3 kom: ", tal3, "sinnum")
@@ -145,42 +147,43 @@ while valm !="6":
         print("Talan 5 kom: ", tal5, "sinnum")
         print("Talan 6 kom: ", tal6, "sinnum")
 
-        if tal1 > tal2 and tal1 > tal3 and tal1 > tal4 and tal1 > tal5 and tal1 > tal6:
+        #finur út hvaða tala kemur oftast
+        if tal1 >= tal2 and tal1 >= tal3 and tal1 >= tal4 and tal1 >= tal5 and tal1 >= tal6:
             print("Talan 1 kom upp oftast")
-        elif tal2 > tal3 and tal2 > tal4 and tal2 > tal5 and tal2 > tal6 and tal2 > tal1:
+        elif tal2 >= tal3 and tal2 >= tal4 and tal2 >= tal5 and tal2 >= tal6 and tal2 >= tal1:
             print("Talan 2 kom upp oftast")
-        elif tal3 > tal4 and tal3 > tal5 and tal3 > tal6 and tal3 > tal1 and tal3 > tal2:
+        elif tal3 >= tal4 and tal3 >= tal5 and tal3 >= tal6 and tal3 >= tal1 and tal3 >= tal2:
             print("Talan 3 kom upp oftast")
-        elif tal4 > tal5 and tal4 > tal6 and tal4 > tal1 and tal4 > tal2 and tal4 > tal3:
+        elif tal4 >= tal5 and tal4 >= tal6 and tal4 >= tal1 and tal4 >= tal2 and tal4 >= tal3:
             print("Talan 4 kom upp oftast")
-        elif tal5 > tal6 and tal5 > tal1 and tal5 > tal2 and tal5 > tal3 and tal5 > tal4:
+        elif tal5 >= tal6 and tal5 >= tal1 and tal5 >= tal2 and tal5 >= tal3 and tal5 >= tal4:
             print("Talan 5 kom upp oftast")
-        elif tal6 > tal1 and tal6 > tal2 and tal6 > tal3 and tal6 > tal4 and tal6 > tal5:
+        elif tal6 >= tal1 and tal6 >= tal2 and tal6 >= tal3 and tal6 >= tal4 and tal6 >= tal5:
             print("Talan 6 kom upp oftast")
 
-
-        if tal1 < tal2 and tal1 < tal3 and tal1 < tal4 and tal1 < tal5 and tal1 < tal6:
+        #finnur út töluna sem kom upp minnst
+        if tal1 <= tal2 and tal1 <= tal3 and tal1 <= tal4 and tal1 <= tal5 and tal1 <= tal6:
             print("Talan 1 kom upp minnst")
-        elif tal2 < tal3 and tal2 < tal4 and tal2 < tal5 and tal2 < tal6 and tal2 < tal1:
+        elif tal2 <= tal3 and tal2 <= tal4 and tal2 <= tal5 and tal2 <= tal6 and tal2 <= tal1:
             print("Talan 2 kom upp minnst")
-        elif tal3 < tal4 and tal3 < tal5 and tal3 < tal6 and tal3 < tal1 and tal3 < tal2:
+        elif tal3 <= tal4 and tal3 <= tal5 and tal3 <= tal6 and tal3 <= tal1 and tal3 <= tal2:
             print("Talan 3 kom upp minnst")
-        elif tal4 < tal5 and tal4 < tal6 and tal4 < tal1 and tal4 < tal2 and tal4 < tal3:
+        elif tal4 <= tal5 and tal4 <= tal6 and tal4 <= tal1 and tal4 <= tal2 and tal4 <= tal3:
             print("Talan 4 kom upp minnst")
-        elif tal5 < tal6 and tal5 < tal1 and tal5 < tal2 and tal5 < tal3 and tal5 < tal4:
+        elif tal5 <= tal6 and tal5 <= tal1 and tal5 <= tal2 and tal5 <= tal3 and tal5 <= tal4:
             print("Talan 5 kom upp minnst")
-        elif tal6 < tal1 and tal6 < tal2 and tal6 < tal3 and tal6 < tal4 and tal6 < tal5:
+        elif tal6 <= tal1 and tal6 <= tal2 and tal6 <= tal3 and tal6 <= tal4 and tal6 <= tal5:
             print("Talan 6 kom upp minnst")
 
     elif valm == "5":
         print("Þú hefur valið verkefni 6")
 
-        fjoldi = int(input("Hversu margir eru skráðir í hópinn? "))
-        nafnalisti = []
+        fjoldi = int(input("Hversu margir eru skráðir í hópinn? "))#tekur við svari notandann
+        nafnalisti = []#listi undir nöfnin
         print("Skrifaðu nöfnin fyrir neðan")
-        for x in range(fjoldi):
-            nafn = input("")
-            nafnalisti.append(nafn)
+        for x in range(fjoldi):#keyrir forslaufuna jafn oft og notanda sagði að væru nöfn
+            nafn = input("")#tekur við nafni
+            nafnalisti.append(nafn)#bætir nafni í listann
 
-        for x in sorted(nafnalisti):
-            print(x)
+        for x in sorted(nafnalisti):#keyrir í gegnum röðuðum listann
+            print(x)#birtir x
