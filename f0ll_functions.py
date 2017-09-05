@@ -24,7 +24,7 @@ def minnstaTala(tala1, tala2, tala3):
 
 #kalla í föllin
 snorri() #kalla í fallið snorri sem hefur enga færibreytu
-print("snorri er b´ðuinn að prenta línurnar og skila stjórninni tilbaka")
+print("snorri er búinn að prenta línurnar og skila stjórninni tilbaka")
 print("-------------------")
 # konni() þetta er ekki hægt vegna þess að það vantar færibreytu
 konni("ég kallaði í fallið")
