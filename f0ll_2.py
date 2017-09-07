@@ -17,7 +17,7 @@ def reiknaFlatarmalThrihyrnings(breidd, haed):
 
 #valmynd
 valm=""
-while valm !="6":
+while valm !="4":
     print("\n--------------")
     print("1. Rúmmál kúlu")
     print("2. Rúmmál kassa")
@@ -43,6 +43,11 @@ while valm !="6":
 
         print(reiknaFlatarmalThrihyrnings(breidd, haed))
 
+    elif valm == "4":
+        print("Þú hefur valið að hætta")
+
+    else:
+        print("Villa, skrifaðu rétta tölu")
 
 
 
