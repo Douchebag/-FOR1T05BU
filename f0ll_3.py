@@ -24,7 +24,8 @@ def minnsta(listi):
 def summa(listi):
     summa = 0
     for x in listi:
-        
+        summa += x
+    return summa
 
 #forrit
 
@@ -38,3 +39,5 @@ skrifaUt(listi) #birta lista
 print(staersta(listi)) #birtir stærstu töluna
 
 print(minnsta(listi)) #birtir minnstu töluna
+
+print(summa(listi)) #birtir summu listans
