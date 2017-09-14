@@ -1,6 +1,7 @@
 #12.9.2017
 #Ingvar Vigfússon
 #Skilaverkefni 2 föll/functions
+from random import *
 
 #föll
 
@@ -24,6 +25,11 @@ def kelvin_celsius(kelv):
 def grunn_veldi(grunn, veldi):
     veldid = grunn ** veldi
     return veldid
+    #utkoma = 1
+    #for i in range(veldi):
+    #    utkoma = utkoma * grunn
+        # utkoma *= grunn
+    #return utkoma
 #fallið tommur_sentimetra skilar tommum í sentimetrum
 def tommur_sentimetrar(tomm):
     senti = tomm * 2.54
@@ -42,11 +48,22 @@ def litra_gallon(litra):
     return gal
 #
 def nafn_kyn(nafn, kyn):
-    if kyn == "KK":
-        return "Sæll og blessaður " + nafn
-    elif kyn == "KVK":
-        return "Sæl og blessuð " + nafn
+    if kyn == "KK": #ef kyn er KK
+        return "Sæll og blessaður " + nafn #skilar það þessu
+    elif kyn == "KVK":#annars ef kyn er KVK
+        return "Sæl og blessuð " + nafn #skilar það þessari setningu
+def kasta():
+    randomTala = randint(1, 7)#random tala milli 1 og 7
+    return randomTala#skilar randomTala
+def thridjiListinn(list1, list2):
+    listi3 = []
 
+    for x in list1:#keyrir í gegnum fyrsta listann sem x
+        if x in list2:#ef x er inní list2
+            if x not in listi3:#og ef x er ekki nú þegar í listi3
+                listi3.append(x)#bætir x inní listi3
+
+    return listi3 #skilar listi3
 
 #Valmynd
 valm=""
@@ -57,9 +74,9 @@ while valm !="9":
     print("3. Grunntölur og veldi")
     print("4. Tommur og sentimetrar")
     print("5. Gallon í lítra eða öfugt")
-    print("6.")
-    print("7.")
-    print("8.")
+    print("6. Nafn og kyn")
+    print("7. Random heiltala 1-7")
+    print("8. Lista samanburður")
     print("9. hætta")
     print("--------------")
     valm=input("")
@@ -138,9 +155,35 @@ while valm !="9":
             print(litrar, "lítrar eru", round(gallon), "gallon")
 
     elif valm == "6":
-        print("Þú hefur valip lið 6")
+        print("Þú hefur valið lið 6")
 
         svar = input("Hvert er nafn þitt? ")
-        kynSvar = input("Ertu kk eða kvk? ").upper()
+        kynSvar = input("Ertu kk eða kvk? ").upper()#tekur inputtið sem stórir stafir
 
-        print(nafn_kyn(svar, kynSvar))
+        print(nafn_kyn(svar, kynSvar))#birtir nafn_kyn fallið með svar sem nafn og kynSvar sem kyn
+
+    elif valm == "7":
+        print("Þú hefur valið lið 7")
+
+        print(kasta()) #birtir fallið kasta
+
+    elif valm == "8":
+        print("Þú hefur valið dæmi 8")
+
+        listi1 = []
+        listi2 = []
+
+        lengd1 = int(input("Hversu langir eru listarnir? "))
+
+        for x in range(lengd1):#keyrir einsoft og notandi vildi
+            svar1 = int(input("Sláðu inn tölu: "))
+            listi1.append(svar1)#bætir tölunni í listann
+        print("------------")
+        for x in range(lengd1):#keyrir einsoft og notandi vildi
+            svar2 = int(input("Sláðu inn tölu: "))
+            listi2.append(svar2)#bætir tölunni í listann
+
+        print(listi1)#til að sjá listi1
+        print(listi2)#til að sjá listi2
+
+        print(thridjiListinn(listi1, listi2))#birtir thridjilistinn með listi1 sem list1 og listi2 sem list2
