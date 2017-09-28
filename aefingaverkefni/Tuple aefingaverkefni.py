@@ -56,3 +56,13 @@ while valm !="6":
             print("Stafurinn", stafur, "er í tuple_a")
         else:
             print("Stafurinn", stafur, "er ekki í tuple_a")
+        #auka
+        er_til = False
+        for stak in tuple_a:
+            if stak == stafur:
+                er_til = True
+                break
+        if er_til: #stytting á er_til == True
+            print("Já")
+        else:
+            print("nei")
