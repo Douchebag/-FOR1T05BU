@@ -38,7 +38,11 @@ n_tuple = ("mouse", [8, 4, 6], (1, 2, 3))
 #           01234    0  1   2   0  1  2
 print(n_tuple[0][3])
 print(n_tuple[1][1])
-print("---")
+for i in range(len(n_tuple)):#til að fá allt
+    for stak in n_tuple[i]:#til að ekki fá sviga og kommur
+        print(stak, end=' ')
+    print()#til að gera bil milli það sem er inní n_tuple
+print("\n---")
 my_tuple = ('p', 'e', 'r', 'm', 'i', 't')
 print(my_tuple[-1])
 print(my_tuple[-6])
