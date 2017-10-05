@@ -10,7 +10,7 @@ valm=""
 while valm !="4":
     print("\n--------------")
     print("1. Tuples Herrar og dömur")
-    print("2. Dæmi")
+    print("2. Símaskrá")
     print("3. Dæmi")
     print("4. Hætta")
     print("--------------")
@@ -96,20 +96,63 @@ while valm !="4":
 
         test1 = []
         teljari = 0
-        for x in ollnofn:
-            for stak in x:
-                if stak == "n":
-                    teljari += 1
-                    if teljari > 1:
-                        test1.append(x)
-        print(test1)
+        #for x in ollnofn:
+            #ekki búið
 
+    elif valm == "2":
+        print("Þú hefur valið 2. Símaskrá")
 
+        simakra = {"Konráð": 2325523, "Snorri": 1234233, "Magnús": 5432231, "Sofía": 4326654, "Jón": 8763342, "Anita": 6853355, "Rósa": 7658899, "María": 9874452, "Kristborg": 5347765, "Helga": 5437522}
 
+        svar = input("Hvert er nafnið? ")
 
+        for x in simakra:
+            if x == svar:
+                print(x, simakra[x])
 
+    elif valm == "3":
+        print("Þú hefur valið 3. bekkur")
 
+        teljari = 0
 
+        bekkur = {"Hrannar": 17, "Gudmundur": 18, "Sigurkarl": 17, "Arnsteinn": 16, "Lilja": 17, "Kristlind": 18, "Huginn": 17, "Runar": 18, "Marino": 16, "Johann": 17, "Hafros": 17, "Rut": 18, "Oddfreyja": 17, "Sigurpall": 18, "Gudridur": 17}
 
+        #allir nemendur og aldur
+        for x in bekkur:
+            print(x, "------", bekkur[x])
 
+        #18+
+        print("---------")
 
+        for x in bekkur:
+            if bekkur[x] >= 18:
+                teljari += 1
+                print(x)
+        print("Það eru", teljari, "nemendur í þessum bekk sem eru 18+")
+
+        #medalaldur
+        print("---------")
+        aldurListi = []
+
+        for x in bekkur:
+            aldurListi.append(bekkur[x])
+
+        form = sum(aldurListi) / len(aldurListi)
+        print("Meðalaldur:", form)
+
+        #heildar aldur
+
+        print("Heildaraldur:", sum(aldurListi))
+
+        #Biður um staf og skrifar út nafn + aldur
+
+        stafur = input("Hvaða staf byrjar nafnið á? ").upper()
+        teljari = 0
+        aldur = []
+        for x in bekkur:
+            if x[0] == stafur:
+                print(x, bekkur[x])
+                teljari += 1
+                aldur.append(bekkur[x])
+        formula = sum(aldur) / teljari
+        print("Meðalaldur þeirra:", formula)
