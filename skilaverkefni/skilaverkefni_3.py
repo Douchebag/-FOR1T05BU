@@ -11,7 +11,7 @@ while valm !="4":
     print("\n--------------")
     print("1. Tuples Herrar og dömur")
     print("2. Símaskrá")
-    print("3. Dæmi")
+    print("3. Bekkur")
     print("4. Hætta")
     print("--------------")
     valm=input("")
@@ -89,26 +89,38 @@ while valm !="4":
 
         # Finnið öll nöfn sem hafa fleiri en eitt n í nafninu
         print("\n-------------")
-        for x in herraTupla:
-            ollnofn.append(x)
-        for x in domurTupla:
-            ollnofn.append(x)
+        for x in herraTupla:#keyrir i gegnum herraTupla sem x
+            ollnofn.append(x)#bætir við x í ollnofn
+        for x in domurTupla:#keyrir i gegnum domurTupla sem x
+            ollnofn.append(x)#bætir við x í ollnofn
 
-        test1 = []
+        output = []
         teljari = 0
-        #for x in ollnofn:
-            #ekki búið
+
+        for nafn in ollnofn:  #keyrir i gegnum ollnofn sem nafn
+
+            for stafur in nafn:  #keyrir i gegnum nafn sem stafur
+                if stafur == "n":  #ef stafur er n
+                    teljari += 1 #bætir einum við teljarann
+
+            if teljari > 1:  #ef hann er stærri en 1 þá eru 2+ n í nafninu
+                output.append(nafn)  #ef svo er þá er nafnið appendað í output
+
+            teljari = 0  # reset-ar teljarann
+
+        print("Nöfnin sem hafa fleiri en eitt n:", output)
 
     elif valm == "2":
         print("Þú hefur valið 2. Símaskrá")
 
-        simakra = {"Konráð": 2325523, "Snorri": 1234233, "Magnús": 5432231, "Sofía": 4326654, "Jón": 8763342, "Anita": 6853355, "Rósa": 7658899, "María": 9874452, "Kristborg": 5347765, "Helga": 5437522}
+        simakra = {"Konrad": 2325523, "Snorri": 1234233, "Magnús": 5432231, "Sofía": 4326654, "Jón": 8763342, "Anita": 6853355, "Rósa": 7658899, "María": 9874452, "Kristborg": 5347765, "Helga": 5437522}
 
-        svar = input("Hvert er nafnið? ")
+        svarU = input("Hvert er nafnið? ")
+        svar = svarU[0].upper() + svarU[1:] #Breytir fyrsta stafinum í stórann staf
 
-        for x in simakra:
-            if x == svar:
-                print(x, simakra[x])
+        for x in simakra:#keyrir i gegnum simaskra sem x. x er þá lykillinn, ekki gildið
+            if x == svar:#ef x er sama og svar
+                print(x, simakra[x])#birtir x og gildi þess
 
     elif valm == "3":
         print("Þú hefur valið 3. bekkur")
@@ -118,41 +130,47 @@ while valm !="4":
         bekkur = {"Hrannar": 17, "Gudmundur": 18, "Sigurkarl": 17, "Arnsteinn": 16, "Lilja": 17, "Kristlind": 18, "Huginn": 17, "Runar": 18, "Marino": 16, "Johann": 17, "Hafros": 17, "Rut": 18, "Oddfreyja": 17, "Sigurpall": 18, "Gudridur": 17}
 
         #allir nemendur og aldur
-        for x in bekkur:
-            print(x, "------", bekkur[x])
+        for x in bekkur:#keyrir í gegnum bekkur sem x
+            print(x, "------", bekkur[x])#birtir x(lykill) og gildi x
 
         #18+
-        print("---------")
+        print("---------\nNemendur sem eru 18+")
 
-        for x in bekkur:
-            if bekkur[x] >= 18:
-                teljari += 1
-                print(x)
-        print("Það eru", teljari, "nemendur í þessum bekk sem eru 18+")
+        for x in bekkur:#keyrir i gegnum bekkur sem x
+            if bekkur[x] >= 18:#ef gildi x er staerri eða jafn 18
+                teljari += 1#bætir einum við teljara
+                print(x)#birtir x
+        print("Það eru", teljari, "nemendur í þessum bekk sem eru 18+")#birtir teljarann
 
         #medalaldur
         print("---------")
         aldurListi = []
 
-        for x in bekkur:
-            aldurListi.append(bekkur[x])
+        for x in bekkur:#keyrir í gegnum bekkur sem x
+            aldurListi.append(bekkur[x])#bætir gildi x við aldurListi
 
-        form = sum(aldurListi) / len(aldurListi)
-        print("Meðalaldur:", form)
+        form = sum(aldurListi) / len(aldurListi)#tekur summu listans og deilir með fjölda staka í listanum
+        print("Meðalaldur:", form)#birtir meðalaldur
 
         #heildar aldur
 
-        print("Heildaraldur:", sum(aldurListi))
+        print("Heildaraldur:", sum(aldurListi))#birtir summu listans
 
         #Biður um staf og skrifar út nafn + aldur
 
-        stafur = input("Hvaða staf byrjar nafnið á? ").upper()
+        stafur = input("Hvaða staf byrjar nafnið á? ").upper()#tekur inn staf og breytir í stórann
         teljari = 0
         aldur = []
-        for x in bekkur:
-            if x[0] == stafur:
-                print(x, bekkur[x])
-                teljari += 1
-                aldur.append(bekkur[x])
-        formula = sum(aldur) / teljari
-        print("Meðalaldur þeirra:", formula)
+        for x in bekkur:#keyrir í gegnum bekkur sem x
+            if x[0] == stafur:#ef fyrsta stak í x er sama og stafur sem notandi gefur
+                print(x, bekkur[x])#birtir x og gildi þess
+                teljari += 1#bætir einum við teljara
+                aldur.append(bekkur[x])#bætir gildinu við lista aldur
+        formula = sum(aldur) / teljari#tekur summu listans og deilir með teljaranum
+        print("Meðalaldur þeirra:", formula)#birtir formuluna
+
+    elif valm == "4":#ef valið er 4 stoppar forritið
+        break
+
+    else:
+        print("Villa. Rangur innsláttur")
