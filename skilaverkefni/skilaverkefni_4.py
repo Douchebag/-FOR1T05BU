@@ -2,6 +2,7 @@
 #Ingvar Vigfússon
 #Skilaverkefni 4
 
+#1
 with open("slettartolur.txt", 'w', encoding='utf8') as f:
     for i in range(2, 1001, 2):
         f.write(str(i)+" ")
@@ -32,5 +33,66 @@ with open("sumarslettartolur.txt", 'w', encoding='utf-8') as e:
             e.write(str(x) + ' ')
 
 #d.	Prentið út skrána með bil milli talna og 10 tölur í línu
+teljari = 0
 
 with open("sumarslettartolur.txt", 'r', encoding='utf-8') as e:
+    for x in listi:
+        teljari += 1
+        print(x, end=" ")
+        if teljari == 10:
+            print("")
+            teljari = 0
+
+#2.	Búið til skrá sem innheldur  fyrstu 100 prímtölurnar. Setjið tölurnar inn með því að nota for slaufur.
+
+#a.	Prentið út skránna
+with open("primetolur.txt", 'w', encoding='utf8') as f:
+    for i in range(2, 101):
+        if i == 0 or i == 1:
+            break
+        for x in range(2, i):
+            if i % x == 0:
+                break
+        else:
+            f.write(str(i) + " ")
+
+#b.	Prentið allar tölur sem innhalda 7
+primlisti = []
+with open("primetolur.txt", 'r', encoding='utf-8') as f:
+    line = f.read()
+    line.strip()
+    primlisti = (line.split(' '))
+primlisti.remove('')
+primlisti = list(map(int, primlisti))
+for x in primlisti:
+    if "7" in str(x):
+        print(x, end=" ")
+
+#c.	Prentið  svo  út fjórðu hverja tölu og setjið inn í aðra skrá. Prentið þá skrá út.
+with open("fjordaprime.txt", 'w', encoding='utf8') as f:
+    teljari = 0
+    for x in primlisti:
+        teljari += 1
+        if teljari == 4:
+            f.write(str(x) + " ")
+            teljari = 0
+print("")
+#3.	Hannið forrit sem hefur að geyma þrjár tuples.
+with open("tuplur.txt", 'w', encoding='utf8') as f:
+    tupla1 = []
+    for x in range(1, 10):
+        tupla1.append(x)
+    f.write(str(tuple(tupla1)))
+
+    tupla2 = []
+    
+
+
+
+
+
+
+
+
+
+
