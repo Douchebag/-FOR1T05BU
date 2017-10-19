@@ -120,6 +120,7 @@ print(tupla)
 #4
 '''
 f.write("dictionar harð kóðað bara")
+notað eval
 '''
 
 
