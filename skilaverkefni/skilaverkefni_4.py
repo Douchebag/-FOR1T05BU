@@ -1,6 +1,7 @@
 #17.10.2017
 #Ingvar Vigfússon
 #Skilaverkefni 4
+import random
 
 #1
 with open("slettartolur.txt", 'w', encoding='utf8') as f:
@@ -77,15 +78,44 @@ with open("fjordaprime.txt", 'w', encoding='utf8') as f:
             f.write(str(x) + " ")
             teljari = 0
 print("")
+
 #3.	Hannið forrit sem hefur að geyma þrjár tuples.
 with open("tuplur.txt", 'w', encoding='utf8') as f:
     tupla1 = []
     for x in range(1, 10):
         tupla1.append(x)
-    f.write(str(tuple(tupla1)))
+    f.write(str(tuple(tupla1)) + "\n")
 
+    stafir = "abcdefghijklmnopqrstuvwxyz"
     tupla2 = []
-    
+
+    for x in range(1, 9):
+        tupla2.append(random.choice(stafir))
+    f.write(str(tuple(tupla2)) + "\n")
+
+    tupla3 = ("konni", 123, "sponni", 234)
+    f.write(str(tupla3) + "\n")
+
+#a.	Prentið út hverja tuple fyrir sig
+with open("tuplur.txt", 'r', encoding='utf-8') as f:
+    for x in f:
+        print(x, end="")
+
+#b.	Bætið inn við tupplu
+tupla = []
+with open("tuplur.txt", 'r', encoding='utf-8') as f:
+    line = f.readline()
+    line.strip()
+    tupla = (line.split('\n'))
+    #tupla.remove('(')
+    for i in f.readline():
+        tmp = i.split(", ")
+        try:
+            tupla.append(tmp)
+        finally:
+            f.close()
+print(tupla)
+
 
 
 
