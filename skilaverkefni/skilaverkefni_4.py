@@ -117,7 +117,10 @@ with open("tuplur.txt", 'r', encoding='utf-8') as f:
 print(tupla)
 
 
-
+#4
+'''
+f.write("dictionar harð kóðað bara")
+'''
 
 
 
