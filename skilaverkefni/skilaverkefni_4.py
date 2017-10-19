@@ -13,7 +13,7 @@ listi = []
 with open("slettartolur.txt", 'r', encoding='utf-8') as f:
     listi = f.readlines()
 print(listi)
-
+print("---------------")
 #b.	Finnið summu og meðaltal talnanna með tveimur aukastöfum
 listi = []
 with open("slettartolur.txt", 'r', encoding='utf-8') as f:
@@ -32,6 +32,7 @@ with open("sumarslettartolur.txt", 'w', encoding='utf-8') as e:
     for x in listi:
         if x % 8 == 0:
             e.write(str(x) + ' ')
+print("---------------")
 
 #d.	Prentið út skrána með bil milli talna og 10 tölur í línu
 teljari = 0
@@ -56,6 +57,7 @@ with open("primetolur.txt", 'w', encoding='utf8') as f:
                 break
         else:
             f.write(str(i) + " ")
+print("---------------")
 
 #b.	Prentið allar tölur sem innhalda 7
 primlisti = []
@@ -68,7 +70,7 @@ primlisti = list(map(int, primlisti))
 for x in primlisti:
     if "7" in str(x):
         print(x, end=" ")
-
+print("\n---------------")
 #c.	Prentið  svo  út fjórðu hverja tölu og setjið inn í aðra skrá. Prentið þá skrá út.
 with open("fjordaprime.txt", 'w', encoding='utf8') as f:
     teljari = 0
@@ -77,7 +79,8 @@ with open("fjordaprime.txt", 'w', encoding='utf8') as f:
         if teljari == 4:
             f.write(str(x) + " ")
             teljari = 0
-print("")
+            print(x)
+
 
 #3.	Hannið forrit sem hefur að geyma þrjár tuples.
 with open("tuplur.txt", 'w', encoding='utf8') as f:
@@ -95,38 +98,84 @@ with open("tuplur.txt", 'w', encoding='utf8') as f:
 
     tupla3 = ("konni", 123, "sponni", 234)
     f.write(str(tupla3) + "\n")
-
+print("----")
 #a.	Prentið út hverja tuple fyrir sig
 with open("tuplur.txt", 'r', encoding='utf-8') as f:
     for x in f:
         print(x, end="")
 
+
 #b.	Bætið inn við tupplu
 tupla = []
+fyrsta = []
+
 with open("tuplur.txt", 'r', encoding='utf-8') as f:
-    line = f.readline()
+
+    line = f.read()
     line.strip()
     tupla = (line.split('\n'))
-    #tupla.remove('(')
-    for i in f.readline():
-        tmp = i.split(", ")
-        try:
-            tupla.append(tmp)
-        finally:
-            f.close()
-print(tupla)
+    tupla.remove('')
 
 
-#4
-'''
-f.write("dictionar harð kóðað bara")
-notað eval
-'''
+test = list(tupla[0])
 
+test.insert(26, ',')
+test.insert(27, ' ')
+test.insert(28, '10')
 
+test2 = []
+tolur = '12345678910'
 
+for x in test:
+    if x in tolur:
+        test2.append(x)
 
+newdata = line.replace(str(tuple(tupla1)),str(tuple(test2)))
 
+with open('tuplur.txt', 'w', encoding='utf-8') as f:
+    f.write(newdata)
 
+#c.	Finnið summu fyrstu tupplunar.
+test2 = list(test2)
+summa = 0
 
+for x in test2:
+    summa += int(x)
+medaltal = summa/len(test2)
+print("----")
+print("Summa tupplunar er:", summa)
+print("Meðaltal tupplunar er:", round(medaltal, 2))
 
+#4.	Hannið forrit sem býr til skrá sem geymir dictionary.
+
+#a og b
+with open("dictionary.txt", 'w', encoding='utf8') as f:
+    f.write("{'konni': 1, 'snorri': 2, 'kalli': 3, 'palli': 4}\n")
+
+#c.	Bætið við tveimur dictionarys
+dic1 = {1: 'gulur', 2: 'bleikur', 3: 'rauður'}
+dic2 = {'einn': 1, 'tveir': 2, 'thrir': 3, 'fjorir': 4, 'fimm': 5}
+with open("dictionary.txt", 'a', encoding='utf8') as f:
+    f.write(str(dic1) + "\n")
+    f.write(str(dic2) + "\n")
+
+#d.	Prentið út dictionaryin eitt í einu. Eitt  sett(key,value) í sér línu.
+dict = {}
+with open("dictionary.txt", 'r', encoding='utf8') as f:
+    line = f.read()
+    line.strip()
+    dict = (line.split('\n'))
+    dict.remove('')
+
+dict1 = eval(dict[0])
+dict2 = eval(dict[1])
+dict3 = eval(dict[2])
+print("----")
+for key, value in dict1.items():
+    print("{0}:{1}" .format(key, value))
+print("")
+for key, value in dict2.items():
+    print("{0}:{1}" .format(key, value))
+print("")
+for key, value in dict3.items():
+    print("{0}:{1}" .format(key, value))

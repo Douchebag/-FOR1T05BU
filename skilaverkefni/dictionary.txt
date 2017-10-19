@@ -1,0 +1,3 @@
+{'konni': 1, 'snorri': 2, 'kalli': 3, 'palli': 4}
+{1: 'gulur', 2: 'bleikur', 3: 'rauður'}
+{'fimm': 5, 'einn': 1, 'thrir': 3, 'tveir': 2, 'fjorir': 4}
