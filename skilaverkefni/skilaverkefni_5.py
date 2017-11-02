@@ -50,38 +50,6 @@ class Hnit2:
         elif self.x_hnit >= 0 and self.y_hnit <= 0:
             return "Punkturinn er í 4. fjórðung"
 
-class Hermann:
-    def lif(self):
-        lif = random.randint(1, 5)
-        return lif
-    def vopn(self):
-        vopn = random.randint(1, 3)
-        if vopn == 1:
-            return "sverd"
-        elif vopn == 2:
-            return "spjot"
-        elif vopn == 3:
-            return "exi"
-    def afl(self):
-        afl = random.randint(1, 5)
-        return afl
-
-    '''
-    lid1 = []
-    lid2 = []
-    teljari = 0
-
-    for x in range(10):
-        teljari += 1
-        if teljari % 2 == 0:
-            lid1.append("lid1_h" + str(x))
-        else:
-            lid2.append("lid2_h" + str(x))'''
-
-
-
-
-
 #dæmi 1
 rad = Hringur()
 
@@ -108,6 +76,3 @@ print(rand2.hnitakerfi())
 lengd = math.sqrt(abs(r1-r3)**2 + abs(r2-r4)**2)
 print("Stysta leiðin milli punktana er:", round(lengd, 2))
 
-#dæmi 3
-lid1 = ["lid1_h1", "lid1_h2", "lid1_h3", "lid1_h4", "lid1_h5"]
-lid2 = ["lid2_h1", "lid2_h2", "lid2_h3", "lid2_h4", "lid2_h5"]
