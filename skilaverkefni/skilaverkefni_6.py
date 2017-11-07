@@ -80,14 +80,17 @@ while teljari == 0:
 
         #spjot
         if "spjot" in x and "sverð" in y:
-            print(x, "er sterkari en", y, "og", y, "tekur", x[14], "stig af lífinu sínu")
+            print(x, "er sterkari en", y, "og", y, "tapar", x[14], "stig af lífinu sínu")
             #herdeild1.append(x) #setur x i aframlid1
             if x[14] < y[8]: #ef afl fra x er minna en lif hja y
                 damage = int(y[8]) - int(x[14])#lif y minus afl x
                 if damage > 0:
                     yListi = list(y) #setur y upp sem lista
+                    yListi[8] = damage
                     strengur = "".join(map(str, yListi)) #breytir yListi aftur i streng
                     herdeild2.append(strengur) #setur strengur i aframLid2
+                    herdeild2.remove(y)
+                else:
                     herdeild2.remove(y)
             else:
                 herdeild2.remove(y)
@@ -99,10 +102,13 @@ while teljari == 0:
                 damage = int(x[8]) - int(y[12])#lif x minus afl y
                 if damage > 0:
                     xListi = list(x) #set x upp sem lista
+                    xListi[8] = damage
                     strengur = "".join(map(str, xListi)) #breytir xListi aftur i streng
                     herdeild1.append(strengur) #setur strengur i aframLid1
                     herdeild1.remove(x)
-            else:
+                else:
+                    herdeild1.remove(x)
+            elif y[12] > x[8]:
                 herdeild1.remove(x)
         if "spjot" in x and "spjot" in y:
             print(x, "og", y, "hafa báðir exi og taka báðir skaða")
@@ -271,7 +277,7 @@ while teljari == 0:
         teljari += 1
 
 
-#ef bardagi heldur áfram
+#sjaum utkomurnar
 
 print("Thad eru", len(herdeild1), "eftir af herdeild1", herdeild1)
 print("Thad eru", len(herdeild2), "eftir af herdeild2", herdeild2)
