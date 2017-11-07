@@ -11,8 +11,8 @@ class Hermann:
         self.lid1 = []
         self.lid2 = []
 
-        self.lid1.append("lid1_h" + str(teljari) + "(" + str(lif) + vopn + str(afl) + ")")
-        self.lid2.append("lid2_h" + str(teljari) + "(" + str(lif) + vopn + str(afl) + ")")
+        self.lid1.append("lid1_h" + str(teljari) + "(" + str(lif) + avopn + str(afl) + ")")
+        self.lid2.append("lid2_h" + str(teljari) + "(" + str(lif) + avopn + str(afl) + ")")
 
     def lid_1(self):
         for x in self.lid1:
