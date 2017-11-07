@@ -21,6 +21,9 @@ class Hermann:
         for x in self.lid2:
             return x
     def bardagi(self):
+        herdeild1 = []
+        herdeild2 = []
+        herdeild1.append()
         for x, y in zip(self.lid_1(), self.lid_2()):
             return x, "á móti", y
 
@@ -277,3 +280,4 @@ print("Thad eru", len(herdeild1), "eftir af herdeild1", herdeild1)
 print("Thad eru", len(herdeild2), "eftir af herdeild2", herdeild2)
 
 
+print(Hermann.bardagi(self.lid1, self.lid2))
