@@ -20,9 +20,6 @@ class Hermann:
     def lid_2(self):
         for x in self.lid2:
             return x
-    def bardagi(self):
-        for x, y in zip(self.lid_1(), self.lid_2()):
-            return x, "á móti", y
 
 
 #dæmi 1
@@ -82,7 +79,7 @@ while teljari == 0:
         if "spjot" in x and "sverð" in y:
             print(x, "er sterkari en", y, "og", y, "tapar", x[14], "stig af lífinu sínu")
             #herdeild1.append(x) #setur x i aframlid1
-            if x[14] < y[8]: #ef afl fra x er minna en lif hja y
+            if x[14] <= y[8]: #ef afl fra x er minna en lif hja y
                 damage = int(y[8]) - int(x[14])#lif y minus afl x
                 if damage > 0:
                     yListi = list(y) #setur y upp sem lista
@@ -98,7 +95,7 @@ while teljari == 0:
         if "spjot" in x and "exi" in y:
             print(x, "tapar á móti", y, "og", x, "tapar", y[12], "stig af lífinu sínu")
             #herdeild2.append(y)
-            if y[12] < x[8]: #ef afl fra y er minna en lif hja x
+            if y[12] <= x[8]: #ef afl fra y er minna en lif hja x
                 damage = int(x[8]) - int(y[12])#lif x minus afl y
                 if damage > 0:
                     xListi = list(x) #set x upp sem lista
@@ -108,7 +105,7 @@ while teljari == 0:
                     herdeild1.remove(x)
                 else:
                     herdeild1.remove(x)
-            elif y[12] > x[8]:
+            else:
                 herdeild1.remove(x)
         if "spjot" in x and "spjot" in y:
             print(x, "og", y, "hafa báðir exi og taka báðir skaða")
@@ -128,19 +125,23 @@ while teljari == 0:
                     strengur = "".join(map(str, yListi))
                     herdeild2.append(strengur)
                     herdeild2.remove(y)
+                else:
+                    herdeild2.remove(y)
             else:
                 herdeild2.remove(y)
 
             if afl2 > lif1:
                 print(x, "tapar a moti", y)
                 herdeild1.remove(x)
-            elif afl2 > lif1:
+            elif afl2 < lif1:
                 damage = lif1 - afl2
                 if damage > 0:
                     xListi = list(x)
                     xListi[8] = damage
                     strengur = "".join(map(str, xListi))
                     herdeild1.append(strengur)
+                    herdeild1.remove(x)
+                else:
                     herdeild1.remove(x)
             else:
                 herdeild1.remove(x)
@@ -149,7 +150,7 @@ while teljari == 0:
         if "sverð" in x and "spjot" in y:
             print(x, "tapar á móti", y, "og", x, "tapar", y[14], "stig af lífinu sínu")
             #herdeild2.append(y)
-            if y[14] < x[8]:
+            if y[14] <= x[8]:
                 damage = int(x[8]) - int(y[14])
                 if damage > 0:
                     xListi = list(x)
@@ -157,19 +158,23 @@ while teljari == 0:
                     strengur = "".join(map(str, xListi))
                     herdeild1.append(strengur)
                     herdeild1.remove(x)
+                else:
+                    herdeild1.remove(x)
             else:
                 herdeild1.remove(x)
 
         if "sverð" in x and "exi" in y:
             print(x, "er sterkari en", y, "og", y, "tapar", x[14], "stig af lífinu sínu")
             #herdeild1.append(x)
-            if x[14] < y[8]:
+            if x[14] <= y[8]:
                 damage = int(y[8]) - int(x[14])
                 if damage > 0:
                     yListi = list(y)
                     yListi[8] = damage
                     strengur = "".join(map(str, yListi))
                     herdeild2.append(strengur)
+                    herdeild2.remove(y)
+                else:
                     herdeild2.remove(y)
             else:
                 herdeild2.remove(y)
@@ -191,19 +196,23 @@ while teljari == 0:
                     strengur = "".join(map(str, yListi))
                     herdeild2.append(strengur)
                     herdeild2.remove(y)
+                else:
+                    herdeild2.remove(y)
             else:
                 herdeild2.remove(y)
 
             if afl2 > lif1:
                 print(x, "tapar a moti", y)
                 herdeild1.remove(x)
-            elif afl2 > lif1:
+            elif afl2 < lif1:
                 damage = lif1 - afl2
                 if damage > 0:
                     xListi = list(x)
                     xListi[8] = damage
                     strengur = "".join(map(str, xListi))
                     herdeild1.append(strengur)
+                    herdeild1.remove(x)
+                else:
                     herdeild1.remove(x)
             else:
                 herdeild1.remove(x)
@@ -212,7 +221,7 @@ while teljari == 0:
         if "exi" in x and "sverð" in y:
             print(x, "tapar á móti", y, "og", x, "tapar", y[14], "stig af lífinu sínu")
             #herdeild2.append(y)
-            if y[14] < x[8]:#ef afl y er minna en lif x
+            if y[14] <= x[8]:#ef afl y er minna en lif x
                 damage = int(x[8]) - int(y[14])# lif x minus afl y
                 if damage > 0:
                     xListi = list(x)
@@ -220,18 +229,22 @@ while teljari == 0:
                     strengur = "".join(map(str, xListi))
                     herdeild1.append(strengur)
                     herdeild1.remove(x)
+                else:
+                    herdeild1.remove(x)
             else:
                 herdeild1.remove(x)
         if "exi" in x and "spjot" in y:
             print(x, "er sterkari en", y, "og", y, "tapar", x[12], "stig af lífinu sínu")
             #herdeild1.append(x)
-            if x[12] < y[8]: #ef afl x er minna en lif y
+            if x[12] <= y[8]: #ef afl x er minna en lif y
                 damage = int(y[8]) - int(x[12]) #lif y minus afl x
                 if damage > 0:
                     yListi = list(y)
                     yListi[8] = damage
                     strengur = "".join(map(str, yListi))
                     herdeild2.append(strengur)
+                    herdeild2.remove(y)
+                else:
                     herdeild2.remove(y)
             else:
                 herdeild2.remove(y)
@@ -254,19 +267,23 @@ while teljari == 0:
                     strengur = "".join(map(str, yListi))
                     herdeild2.append(strengur)
                     herdeild2.remove(y)
+                else:
+                    herdeild2.remove(y)
             else:
                 herdeild2.remove(y)
 
             if afl2 > lif1:
                 print(x, "tapar a moti", y)
                 herdeild1.remove(x)
-            elif afl2 > lif1:
+            elif afl2 < lif1:
                 damage = lif1 - afl2
                 if damage > 0:
                     xListi = list(x)
                     xListi[8] = damage
                     strengur = "".join(map(str, xListi))
                     herdeild1.append(strengur)
+                    herdeild1.remove(x)
+                else:
                     herdeild1.remove(x)
             else:
                 herdeild1.remove(x)
@@ -279,7 +296,7 @@ while teljari == 0:
 
 #sjaum utkomurnar
 
-print("Thad eru", len(herdeild1), "eftir af herdeild1", herdeild1)
-print("Thad eru", len(herdeild2), "eftir af herdeild2", herdeild2)
+print("Thad eru", len(herdeild1), "eftir af herdeild1:", *herdeild1)
+print("Thad eru", len(herdeild2), "eftir af herdeild2:", *herdeild2)
 
 
