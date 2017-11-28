@@ -49,10 +49,27 @@ r3Afl = randrange(2, 7, 2)
 #hamstur
 hamStad = randint(1, 100)
 hamAfl = randrange(2, 7, 2)
-
+#teljarar
 teljari = 0
 kastTeljari = 0
-kast = randint(1, 6)
+r1Teljari = 0
+r2Teljari = 0
+r3Teljari = 0
+hamTeljari = 0
+hundradTeljari = 0 #notad svo mus fer ekki yfir 100
+
+#get notad t.d. mus.stad i stað musStad og mus.afl etc
+#þarf að bua til nagdyrin fyrst
+'''
+mus = Nagdyr("mus", musStad, musAfl)
+
+rotta1 = Nagdyr("rotta1", r1Stad, r1Afl)
+rotta2 = Nagdyr("rotta2", r2Stad, r2Afl)
+rotta3 = Nagdyr("rotta3", r3Stad, r3Afl)
+
+hamstur = Nagdyr("hamstur", hamStad, hamAfl)
+'''
+
 svar = ""
 while musStad < 100:
     svar = input("Villtu kasta tening? Y/N ").upper()
@@ -60,22 +77,34 @@ while musStad < 100:
         #hreyfing fyrir mús
         for i in range(randint(1, 6)):
             musStad += 1
+            if musStad > 99:
+                hundradTeljari += 1
+
             kastTeljari += 1
             if musStad == r1Stad:
                 print("Músin lenti á sama reit og Rotta 1. Reitur:", musStad)
                 if musAfl < r1Afl:
                     print("Afl rottunar er stærri svo músinni er ýtt", r1Afl, "tilbaka")
-                    musStad -= r1Afl
+                    if musStad - r1Afl < 0:
+                        musStad = 0 # svo musStad fer ekki í mínus
+                    else:
+                        musStad -= r1Afl
             elif musStad == r2Stad:
                 print("Músin lenti á sama reit og Rotta 2. Reitur:", musStad)
                 if musAfl < r2Afl:
                     print("Afl rottunar er stærri svo músinni er ýtt", r1Afl, "tilbaka")
-                    musStad -= r2Afl
+                    if musStad - r2Afl < 0:
+                        musStad = 0 #svo musSTad fer ekki i minus
+                    else:
+                        musStad -= r2Afl
             elif musStad == r3Stad:
                 print("Músin lenti á sama reit og Rotta 3. Reitur:", musStad)
                 if musAfl < r3Afl:
                     print("Afl rottunar er stærri svo músinni er ýtt", r1Afl, "tilbaka")
-                    musStad -= r3Afl
+                    if musStad - r3Afl < 0:
+                        musStad = 0 #svo musStaf fer ekki i minus
+                    else:
+                        musStad -= r3Afl
             elif musStad == hamStad:
                 print("Músin lenti á sama reit og Hamsturinn. Reitur:", musStad, "og er ýtt", hamAfl, "áfram")
                 musStad += hamAfl # sleppir rottum
@@ -88,6 +117,7 @@ while musStad < 100:
 
         # hreyfing rottu 1
         for i in range(randint(1, 6)):
+            r1Teljari += 1
             attir = randint(1, 2) # 1 er áfram og 2 er afturábak
             if attir == 1:
                 r1Stad += 1
@@ -114,9 +144,12 @@ while musStad < 100:
                 elif r1Stad == hamStad: #ef stadsetning rottu 1 er sama og hamstur
                     r1Stad += 1 # plus thvi hun kom i minus
                     hamStad -= 1  # hamstur faer 1 i hina attina
+        print("Rotta 1 fékk", r1Teljari, "á teningakasti sínu")
+        r1Teljari = 0 # reset fyrir r1 teljarann
 
         #hreyfing fyrir rottu 2
         for i in range(randint(1, 6)):
+            r2Teljari += 1
             attir = randint(1, 2) # 1 er áfram og 2 er afturábak
             if attir == 1:
                 r2Stad += 1
@@ -143,9 +176,12 @@ while musStad < 100:
                 elif r2Stad == hamStad: #ef stadsetning rottu 1 er sama og hamstur
                     r2Stad += 1 # plus thvi hun kom i minus
                     hamStad -= 1  # hamstur faer 1 i hina attina
+        print("Rotta 2 fékk", r2Teljari, "á teningakasti sínu")
+        r2Teljari = 0 #reset
 
         # hreyfing fyrir rottu 3
         for i in range(randint(1, 6)):
+            r3Teljari += 1
             attir = randint(1, 2) # 1 er áfram og 2 er afturábak
             if attir == 1:
                 r3Stad += 1
@@ -172,6 +208,8 @@ while musStad < 100:
                 elif r3Stad == hamStad: #ef stadsetning rottu 1 er sama og hamstur
                     r3Stad += 1 # plus thvi hun kom i minus
                     hamStad -= 1  # hamstur faer 1 i hina attina
+        print("Rotta 3 fékk", r3Teljari, "á teningakasti sínu")
+        r3Teljari = 0  # reset
 
         #hreyfing fyrir hamstur
         for i in range(randint(1, 6)):
@@ -179,6 +217,12 @@ while musStad < 100:
                 hamStad += 1
             elif (musStad - hamStad) < 0:
                 hamStad -= 1
+        if hamStad == musStad:
+            print("Hamsturinn lenti á sama reit og stoppar")
+            hamStad = musStad
+
+        musStad = musStad - hundradTeljari
+        hundradTeljari = 0
 
         mus = Nagdyr("mus", musStad, musAfl)
 
