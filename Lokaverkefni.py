@@ -3,31 +3,6 @@
 #Lokaverkefni: Nagdýr
 
 from random import randint, randrange
-'''
-nd1Stad = 0
-nd1Afl = randrange(2, 7, 2)
-nd1 = ["mus", nd1Stad, nd1Afl]
-
-print(nd1Afl)
-
-
-while nd1Stad < 100:
-    nd1Stad += randint(1, 6)
-    nd1.remove(nd1[1])
-    nd1.append(nd1Stad)
-    print(nd1)
-    print(nd1Stad)
-
-#Það sem fer inní Nagdyr smiðinn
-teljari = 0
-nd1Teg = randint(1, 3)
-if nd1Teg == 1:
-    nd1Teg = "mus"
-elif nd1Teg == 2:
-    nd1Teg = "rotta"
-elif nd1Teg == 3:
-    nd1Teg = "hamstur"
-'''
 
 class Nagdyr:
     def __init__(self, tegund, stadsetning, afl):
@@ -60,24 +35,28 @@ hundradTeljari = 0 #notad svo mus fer ekki yfir 100
 
 #get notad t.d. mus.stad i stað musStad og mus.afl etc
 #þarf að bua til nagdyrin fyrst
+#reyndi en virkaði ekki rett, þarf ad skoda betur
 '''
 mus = Nagdyr("mus", musStad, musAfl)
-
 rotta1 = Nagdyr("rotta1", r1Stad, r1Afl)
 rotta2 = Nagdyr("rotta2", r2Stad, r2Afl)
 rotta3 = Nagdyr("rotta3", r3Stad, r3Afl)
-
 hamstur = Nagdyr("hamstur", hamStad, hamAfl)
 '''
 
+reiturJump = randrange(1, 75) #Musin getur fengid þetta boost milli 1 og 75
+reiturAfl = randrange(15, 45) #Musin getur fengid þetta boost milli 45 og 95
+print("Það er jump-booster á reit:", reiturJump)
+print("Það er afl-booster á reit:", reiturAfl)
+
 svar = ""
-while musStad < 100:
+while musStad != 100:
     svar = input("Villtu kasta tening? Y/N ").upper()
     if svar == "Y":
         #hreyfing fyrir mús
-        for i in range(randint(1, 6)):
+        for i in range(randint(1, 6)):#
             musStad += 1
-            if musStad > 99:
+            if musStad >= 101:
                 hundradTeljari += 1
 
             kastTeljari += 1
@@ -92,7 +71,7 @@ while musStad < 100:
             elif musStad == r2Stad:
                 print("Músin lenti á sama reit og Rotta 2. Reitur:", musStad)
                 if musAfl < r2Afl:
-                    print("Afl rottunar er stærri svo músinni er ýtt", r1Afl, "tilbaka")
+                    print("Afl rottunar er stærri svo músinni er ýtt", r2Afl, "tilbaka")
                     if musStad - r2Afl < 0:
                         musStad = 0 #svo musSTad fer ekki i minus
                     else:
@@ -100,7 +79,7 @@ while musStad < 100:
             elif musStad == r3Stad:
                 print("Músin lenti á sama reit og Rotta 3. Reitur:", musStad)
                 if musAfl < r3Afl:
-                    print("Afl rottunar er stærri svo músinni er ýtt", r1Afl, "tilbaka")
+                    print("Afl rottunar er stærri svo músinni er ýtt", r3Afl, "tilbaka")
                     if musStad - r3Afl < 0:
                         musStad = 0 #svo musStaf fer ekki i minus
                     else:
@@ -114,6 +93,13 @@ while musStad < 100:
                     hamStad -= hamAfl/2 # hamsturinn fer sömu átt og músin sem nemur hálfu afli hans.
         print("Músin kastaði tening og fékk", kastTeljari)
         kastTeljari = 0 #reset fyrir kast teljarann
+        if musStad == reiturJump:
+            musStad += 5
+            print("***Þú lentir á jump-booster***")
+        if musStad == reiturAfl and musAfl != 6:
+            musAfl += 2
+        elif musStad == reiturAfl and musAfl == 6:
+            print("**Þú lentir á reit fyrir afl boost en varst nuthegar med max-afl.***")
 
         # hreyfing rottu 1
         for i in range(randint(1, 6)):
@@ -230,7 +216,7 @@ while musStad < 100:
             print("Hamsturinn lenti á sama reit og stoppar")
             hamStad = musStad
 
-        musStad = musStad - hundradTeljari
+        musStad -= (hundradTeljari*2)
         hundradTeljari = 0
 
         mus = Nagdyr("mus", musStad, musAfl)
