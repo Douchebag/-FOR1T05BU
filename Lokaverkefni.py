@@ -133,7 +133,10 @@ while musStad < 100:
                     hamStad += 1 # hamstur faer 1 i hina attina
 
             elif attir == 2:
-                r1Stad -= 1
+                if r1Stad < 1:
+                    r1Stad += 1
+                elif r1Stad > 1:
+                    r1Stad -= 1
                 if r1Stad == musStad:
                     if musAfl < r1Afl: #ef afl rottunar er staerra en afl musarinnar
                         for x in range(r1Afl):
@@ -165,7 +168,10 @@ while musStad < 100:
                     hamStad += 1 # hamstur faer 1 i hina attina
 
             elif attir == 2:
-                r2Stad -= 1
+                if r2Stad < 1:
+                    r2Stad += 1
+                elif r2Stad > 1:
+                    r2Stad -= 1
                 if r2Stad == musStad:
                     if musAfl < r2Afl: #ef afl rottunar er staerra en afl musarinnar
                         for x in range(r2Afl):
@@ -197,7 +203,10 @@ while musStad < 100:
                     hamStad += 1 # hamstur faer 1 i hina attina
 
             elif attir == 2:
-                r3Stad -= 1
+                if r3Stad < 1:
+                    r3Stad += 1
+                elif r3Stad > 1:
+                    r3Stad -= 1
                 if r3Stad == musStad:
                     if musAfl < r3Afl: #ef afl rottunar er staerra en afl musarinnar
                         for x in range(r3Afl):
