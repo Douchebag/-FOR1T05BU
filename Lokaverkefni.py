@@ -46,13 +46,16 @@ hamstur = Nagdyr("hamstur", hamStad, hamAfl)
 
 reiturJump = randrange(1, 75) #Musin getur fengid þetta boost milli 1 og 75
 reiturAfl = randrange(15, 45) #Musin getur fengid þetta boost milli 45 og 95
-print("Það er jump-booster á reit:", reiturJump)
-print("Það er afl-booster á reit:", reiturAfl)
+
 
 svar = ""
 while musStad != 100:
     svar = input("Villtu kasta tening? Y/N ").upper()
+    print("----------------------------------------")
     if svar == "Y":
+        print("Það er jump-booster á reit:", reiturJump)
+        print("Það er afl-booster á reit:", reiturAfl)
+        print("----------------------------------------")
         #hreyfing fyrir mús
         for i in range(randint(1, 6)):#
             musStad += 1
@@ -215,6 +218,7 @@ while musStad != 100:
         if hamStad == musStad:
             print("Hamsturinn lenti á sama reit og stoppar")
             hamStad = musStad
+        print("----------------------------------------")
 
         musStad -= (hundradTeljari*2)
         hundradTeljari = 0
@@ -232,6 +236,7 @@ while musStad != 100:
         print(rotta2.uppl())
         print(rotta3.uppl())
         print(hamstur.uppl())
+        print("----------------------------------------")
 
         teljari += 1
 
