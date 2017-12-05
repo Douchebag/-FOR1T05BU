@@ -12,3 +12,6 @@
 ## 30.11.2017 (Fimmtudagur: Ingvar Vigfússon & Sigurður R. Rúnarsson.)
 ## Gerðum nýjan klassa sem heitir Augmentation, gera það þannig að músinn komist ekki yfir 100 og ef hún nær yfir 100 þá fer hún til baka eftir því sem talan fór yfir. Ingvar nefndi að það væri sniðugt að gefa augmentation eins og jump-booster og aflBoost til að gefa leiknum fleiri valkosti og síðan reiturJump og reiturAfl breytur fyrir fleiri eiginleika.
 ## Síðan fórum við saman betur yfir kóðan til að gera hann snirtilegri, skýrari breyttur og kommenta betur.
+
+## 5.12.2017 (Þriðjudagur: Ingvar Vigfússon & Sigurður R. Rúnarsson.)
+## Fórum í að laga hreyfingu á öllum rottanum, Síðan fórum við í að kommanda betur og gera textann skýrari og þægilegri fyrir print output, síðan var líka farið í að láta byrta þegar mús hefur meira afl heldur en rottan sem músin lendir á.
