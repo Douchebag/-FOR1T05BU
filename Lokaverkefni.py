@@ -2,7 +2,7 @@
 #Ingvar Vigfússon & Sigurður Róbert
 #Lokaverkefni: Nagdýr
 
-from random import randint, randrange
+from random import randint, randrange # Það er æskilegast að nota from random import, því að from random import * á til að gefa þér name space error sem forritið tilkynnir þér ekki og getur haft slæm áhrif á keyrslu forrits.
 
 class Nagdyr:
     def __init__(self, tegund, stadsetning, afl):
@@ -31,11 +31,11 @@ r1Teljari = 0
 r2Teljari = 0
 r3Teljari = 0
 hamTeljari = 0
-hundradTeljari = 0 #notad svo mus fer ekki yfir 100
+hundradTeljari = 0 #notað svo að mús fer ekki yfir 100
 
 #get notad t.d. mus.stad i stað musStad og mus.afl etc
 #þarf að bua til nagdyrin fyrst
-#reyndi en virkaði ekki rett, þarf ad skoda betur
+#reyndi en virkaði ekki rett, það var svo fundið betri aðgerð.
 '''
 mus = Nagdyr("mus", musStad, musAfl)
 rotta1 = Nagdyr("rotta1", r1Stad, r1Afl)
@@ -105,9 +105,9 @@ while musStad != 100:
             print("**Þú lentir á reit fyrir afl boost en varst nuthegar med max-afl.***")
 
         # hreyfing rottu 1
+        attir = randint(1, 2)  # 1 er áfram og 2 er afturábak
         for i in range(randint(1, 6)):
             r1Teljari += 1
-            attir = randint(1, 2) # 1 er áfram og 2 er afturábak
             if attir == 1:
                 r1Stad += 1
                 if r1Stad == musStad: #ef stadsetning rottu 1 er sama og mus
@@ -140,9 +140,9 @@ while musStad != 100:
         r1Teljari = 0 # reset fyrir r1 teljarann
 
         #hreyfing fyrir rottu 2
+        attir = randint(1, 2)  # 1 er áfram og 2 er afturábak
         for i in range(randint(1, 6)):
             r2Teljari += 1
-            attir = randint(1, 2) # 1 er áfram og 2 er afturábak
             if attir == 1:
                 r2Stad += 1
                 if r2Stad == musStad: #ef stadsetning rottu 1 er sama og mus
@@ -175,9 +175,9 @@ while musStad != 100:
         r2Teljari = 0 #reset
 
         # hreyfing fyrir rottu 3
+        attir = randint(1, 2)  # 1 er áfram og 2 er afturábak
         for i in range(randint(1, 6)):
             r3Teljari += 1
-            attir = randint(1, 2) # 1 er áfram og 2 er afturábak
             if attir == 1:
                 r3Stad += 1
                 if r3Stad == musStad: #ef stadsetning rottu 1 er sama og mus
@@ -241,3 +241,6 @@ while musStad != 100:
         teljari += 1
 
 print("Það tók", teljari, "teninga köst til að komast í 100")
+
+#END
+#sys.exit
