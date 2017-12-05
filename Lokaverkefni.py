@@ -45,7 +45,7 @@ hamstur = Nagdyr("hamstur", hamStad, hamAfl)
 '''
 
 reiturJump = randrange(1, 75) #Musin getur fengid þetta boost milli 1 og 75
-reiturAfl = randrange(15, 45) #Musin getur fengid þetta boost milli 45 og 95
+reiturAfl = randrange(15, 45) #Musin getur fengid þetta boost milli 15 og 45
 
 
 svar = ""
@@ -111,7 +111,7 @@ while musStad != 100:
             if attir == 1:
                 r1Stad += 1
                 if r1Stad == musStad: #ef stadsetning rottu 1 er sama og mus
-                    if musAfl < r1Afl: #ef afl rottunar er staerra en afl musarinnar
+                    if musAfl < r1Afl and musStad > 0: #ef afl rottunar er staerra en afl musarinnar
                         for x in range(r1Afl):
                             musStad -= 1
                     elif musAfl > r1Afl: #ef afl musarinnar er staerra en afl rottunar +2 fyrir mus
@@ -127,7 +127,7 @@ while musStad != 100:
                 elif r1Stad > 1:
                     r1Stad -= 1
                 if r1Stad == musStad:
-                    if musAfl < r1Afl: #ef afl rottunar er staerra en afl musarinnar
+                    if musAfl < r1Afl and musStad > 0: #ef afl rottunar er staerra en afl musarinnar
                         for x in range(r1Afl):
                             musStad -= 1
                     elif musAfl > r1Afl: #ef afl musarinnar er staerra en afl rottunar +2 fyrir mus
@@ -146,7 +146,7 @@ while musStad != 100:
             if attir == 1:
                 r2Stad += 1
                 if r2Stad == musStad: #ef stadsetning rottu 1 er sama og mus
-                    if musAfl < r2Afl: #ef afl rottunar er staerra en afl musarinnar
+                    if musAfl < r2Afl and musStad > 0: #ef afl rottunar er staerra en afl musarinnar
                         for x in range(r2Afl):
                             musStad -= 1
                     elif musAfl > r2Afl: #ef afl musarinnar er staerra en afl rottunar +2 fyrir mus
@@ -162,7 +162,7 @@ while musStad != 100:
                 elif r2Stad > 1:
                     r2Stad -= 1
                 if r2Stad == musStad:
-                    if musAfl < r2Afl: #ef afl rottunar er staerra en afl musarinnar
+                    if musAfl < r2Afl and musStad > 0: #ef afl rottunar er staerra en afl musarinnar
                         for x in range(r2Afl):
                             musStad -= 1
                     elif musAfl > r2Afl: #ef afl musarinnar er staerra en afl rottunar +2 fyrir mus
@@ -181,7 +181,7 @@ while musStad != 100:
             if attir == 1:
                 r3Stad += 1
                 if r3Stad == musStad: #ef stadsetning rottu 1 er sama og mus
-                    if musAfl < r3Afl: #ef afl rottunar er staerra en afl musarinnar
+                    if musAfl < r3Afl and musStad > 0: #ef afl rottunar er staerra en afl musarinnar
                         for x in range(r3Afl):
                             musStad -= 1
                     elif musAfl > r3Afl: #ef afl musarinnar er staerra en afl rottunar +2 fyrir mus
@@ -197,7 +197,7 @@ while musStad != 100:
                 elif r3Stad > 1:
                     r3Stad -= 1
                 if r3Stad == musStad:
-                    if musAfl < r3Afl: #ef afl rottunar er staerra en afl musarinnar
+                    if musAfl < r3Afl and musStad > 0: #ef afl rottunar er staerra en afl musarinnar
                         for x in range(r3Afl):
                             musStad -= 1
                     elif musAfl > r3Afl: #ef afl musarinnar er staerra en afl rottunar +2 fyrir mus
